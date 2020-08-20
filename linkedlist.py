@@ -31,9 +31,13 @@ class LinkedList:
     
     def cut_tail(self):
         new_tail = self.head
-        while new_tail.link.link:
-            new_tail = new_tail.link
-        new_tail.link = None
+        if new_tail.link is not None:    
+            while new_tail.link.link:
+                new_tail = new_tail.link
+            new_tail.link = None
+        else:
+            self.head = Node(None)
+
 
     def cut_node(self, cut):
         current_node = self.head
@@ -110,4 +114,14 @@ class LinkedList:
 #ll.cut_all(0)
 #print(ll.string_data())
 #ll.cut_all(1)
+#print(ll.string_data())
+
+#ll.add_head(1)
+#ll.add_head(0)
+#ll.add_head(1)
+#ll.cut_tail()
+#print(ll.string_data())
+#ll.cut_all(1)
+#print(ll.string_data())
+#ll.cut_tail()
 #print(ll.string_data())
